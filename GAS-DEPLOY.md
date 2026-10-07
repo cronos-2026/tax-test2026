@@ -1,6 +1,12 @@
-# Google Apps Script 後端部署（v21）
+# Google Apps Script 後端部署（v22）
 
 前端部署在 GitHub Pages。Apps Script Web App 負責管理員登入驗證、參數發布與登入紀錄寫入；GitHub Token 與管理員密碼只放在 Script Properties，不放入前端或版本控制。後端原始碼為 `gas/Code.gs`，部署設定為 `gas/appsscript.json`。
+
+## GitHub Pages 儲存庫（v22）
+- 前台：https://cronos-2026.github.io/tax-test2026/
+- 後台：https://cronos-2026.github.io/tax-test2026/admin
+- `gas/Code.gs` 的 `CONFIG.REPO` 已設定為 `tax-test2026`。
+- `GITHUB_TOKEN` 必須授權 `cronos-2026/tax-test2026` 的 `Contents: Read and write`；只授權舊 `tax-planning` 儲存庫的 Token 不會自動涵蓋新儲存庫。請先在 GitHub 更新 Token 權限，再由專案擁有者更新 Script Properties。
 
 ## Script Properties
 

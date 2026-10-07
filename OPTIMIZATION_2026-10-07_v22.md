@@ -1,0 +1,1 @@
+2026.10.07_v22：前台與後台 Pages 網址切換至 cronos-2026/tax-test2026；同步更新後台 GitHub 目標儲存庫、Apps Script REPO 設定、文件與版號。GITHUB_TOKEN 需另授權新儲存庫 Contents 讀寫。

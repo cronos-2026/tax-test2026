@@ -1,5 +1,5 @@
 /**
- * GAS web app backend for the tax-planning GitHub Pages site (v21).
+ * GAS web app backend for the tax-test2026 GitHub Pages site (v22).
  * Configure Script Properties before deployment. See ../GAS-DEPLOY.md.
  *
  * Script Properties (never commit values):
@@ -10,7 +10,7 @@
  */
 const CONFIG = Object.freeze({
   OWNER: 'cronos-2026',
-  REPO: 'tax-planning',
+  REPO: 'tax-test2026',
   BRANCH: 'main',
   CONFIG_PATH: 'tax-config.json',
   AUDIT_PATH: 'admin-login-log.json',
