@@ -73,12 +73,19 @@ function transformHtml(html, label) {
   });
 }
 
+function fail(msg) { console.error('Build aborted: ' + msg); process.exit(1); }
+
+const jsDir = path.join(ROOT, 'js');
+if (!fs.existsSync(jsDir) || !fs.readdirSync(jsDir).some((n) => n.endsWith('.js'))) {
+  fail('js/ is missing or has no .js files. Expected the folder structure from the zip (index.html, admin.html, tax-config.json, js/*.js, ...).');
+}
+
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 
 for (const f of PUBLIC_FILES) {
   const src = path.join(ROOT, f);
-  if (!fs.existsSync(src)) { console.warn('skip (missing):', f); continue; }
+  if (!fs.existsSync(src)) { fail(`required file is missing: ${f} (was the repository structure flattened on upload?)`); }
   const dst = path.join(OUT, f);
   if (f.endsWith('.html')) fs.writeFileSync(dst, transformHtml(fs.readFileSync(src, 'utf8'), f));
   else fs.copyFileSync(src, dst);
@@ -99,3 +106,16 @@ function copyDir(rel) {
 PUBLIC_DIRS.forEach(copyDir);
 
 console.log(`Built ${OBFUSCATE ? 'obfuscated' : 'plain'} site -> ${path.relative(ROOT, OUT)}/`);
+
+// Every relative src/href in the built HTML must exist in _site/, otherwise the deployed page would be broken.
+const missingRefs = [];
+for (const page of ['index.html', 'admin.html']) {
+  const html = fs.readFileSync(path.join(OUT, page), 'utf8').replace(/<script(?![^>]*\bsrc\s*=)[^>]*>[\s\S]*?<\/script>/gi, '');
+  for (const m of html.matchAll(/\b(?:src|href)\s*=\s*["']([^"']+)["']/gi)) {
+    const ref = m[1].split('#')[0].split('?')[0];
+    if (!ref || /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i.test(ref) || ref.startsWith('/')) continue;
+    if (!fs.existsSync(path.join(OUT, path.dirname(page), ref))) missingRefs.push(`${page} -> ${ref}`);
+  }
+}
+if (missingRefs.length) fail('referenced files are missing from the build:\n  ' + missingRefs.join('\n  '));
+console.log('Reference check passed.');

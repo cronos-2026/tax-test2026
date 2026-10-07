@@ -746,21 +746,35 @@ function getAutomaticDeviceInfo(){
   return info;
 }
 
-async function getPublicIp(){
-  const services=[
-    'https://api.ipify.org?format=json',
-    'https://api64.ipify.org?format=json'
-  ];
-  for(const url of services){
-    try{
-      const ctl=new AbortController();const tm=setTimeout(()=>ctl.abort(),2500);
-      let r;try{r=await fetch(url,{cache:'no-store',signal:ctl.signal});}finally{clearTimeout(tm);}
-      if(!r.ok) continue;
-      const d=await r.json();
-      if(d?.ip) return d.ip;
-    }catch{}
-  }
-  return '無法取得';
+async function fetchIpFrom(url){
+  const ctl=new AbortController();
+  const tm=setTimeout(()=>ctl.abort(),2500);
+  try{
+    const r=await fetch(url,{cache:'no-store',signal:ctl.signal});
+    if(!r.ok) return '';
+    const d=await r.json();
+    return d&&d.ip?String(d.ip):'';
+  }catch{return '';}
+  finally{clearTimeout(tm);}
+}
+
+// 兩個服務同時查詢，先成功者為準（原本為依序嘗試，最壞要多等 5 秒）
+function getPublicIp(){
+  const services=['https://api.ipify.org?format=json','https://api64.ipify.org?format=json'];
+  return new Promise(resolve=>{
+    let pending=services.length;
+    services.forEach(url=>fetchIpFrom(url).then(ip=>{
+      if(ip) resolve(ip);
+      else if(--pending===0) resolve('');
+    }));
+  });
+}
+
+// 頁面載入時就開始查，登入時最多只再等 800 毫秒，查不到就留空，不阻擋登入
+let PUBLIC_IP_PROMISE=null;
+function prefetchPublicIp(){
+  if(!PUBLIC_IP_PROMISE) PUBLIC_IP_PROMISE=getPublicIp();
+  return PUBLIC_IP_PROMISE;
 }
 
 function browserPlatformSummary(){
@@ -903,7 +917,7 @@ function downloadLoginAudit(){
 
 async function collectClientInfo(){
   const d=getAutomaticDeviceInfo();
-  const ip=await getPublicIp();
+  const ip=await Promise.race([prefetchPublicIp(),new Promise(r=>setTimeout(()=>r(''),800))]);
   return {deviceName:d.deviceName,deviceId:d.deviceId,browserPlatform:d.browserPlatform,language:d.language,userAgent:d.userAgent,publicIp:/^[0-9a-fA-F:.]{3,45}$/.test(ip)?ip:''};
 }
 
@@ -961,6 +975,7 @@ async function enterAdmin(){
   loadLoginAudit(true).catch(()=>{});
   loadConfig().catch(e=>status('讀取失敗：'+e.message));
 }
+prefetchPublicIp();
 document.getElementById('loginBtn').onclick=enterAdmin;
 document.getElementById('loginPassword').addEventListener('keydown',e=>{if(e.key==='Enter')enterAdmin()});
 document.getElementById('logoutBtn').onclick=logoutAdmin;
