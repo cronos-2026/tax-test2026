@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-22T15:44:00+08:00",
+  "activeTaxYear": 115,
+  "monitorPolicy": "detect-compare-confirm",
+  "officialFeed": "https://www.mof.gov.tw/Rss/384fb3077bb349ea973e7fc6f13b6974",
+  "monitorError": "",
+  "checks": [
+    {
+      "id": "active-basic-living",
+      "kind": "basicLivingExpense",
+      "targetYear": 115,
+      "status": "not_announced",
+      "confidence": "high",
+      "title": "115年度每人基本生活所需費用",
+      "sourceUrl": "",
+      "sourcePublishDate": "",
+      "values": {},
+      "notes": {},
+      "missingFields": [
+        "basicLivingExpense"
+      ],
+      "message": "截至2026-09-22尚未找到115年度基本生活費正式公告；目前前台暫用114年度213,000元作比較。"
+    },
+    {
+      "id": "next-year-core",
+      "kind": "coreIncomeTax",
+      "targetYear": 116,
+      "status": "not_announced",
+      "confidence": "high",
+      "title": "116年度綜合所得稅年度參數",
+      "sourceUrl": "",
+      "sourcePublishDate": "",
+      "values": {},
+      "notes": {},
+      "missingFields": [
+        "exemption",
+        "seniorExemption",
+        "standardDeductionSingle",
+        "standardDeductionMarried",
+        "salarySpecialDeduction",
+        "disabilitySpecialDeduction",
+        "brackets"
+      ],
+      "message": "尚未找到116年度綜合所得稅免稅額、扣除額及課稅級距正式公告。"
+    }
+  ]
+}

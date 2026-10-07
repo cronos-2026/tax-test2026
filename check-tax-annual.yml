@@ -1,0 +1,40 @@
+name: Check annual tax parameters
+
+on:
+  schedule:
+    - cron: "15 1 * * 1" # 每週一 09:15（台北時間）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    # 固定 Ubuntu 24.04，避免 ubuntu-latest 平台切換造成環境差異
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install parser dependencies
+        run: pip install --disable-pip-version-check requests beautifulsoup4 pypdf
+
+      - name: Check Ministry of Finance official sources
+        run: python scripts/check_tax_updates.py
+
+      - name: Commit candidate file when changed
+        run: |
+          if git diff --quiet -- data/annual-candidate.json; then
+            echo "No candidate changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/annual-candidate.json
+          git commit -m "chore: update annual tax candidate"
+          git push

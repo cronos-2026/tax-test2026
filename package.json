@@ -1,0 +1,13 @@
+{
+  "name": "tax-planning",
+  "private": true,
+  "type": "module",
+  "description": "Build pipeline for the GitHub Pages front end (publish-time JS obfuscation).",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:dev": "OBFUSCATE=0 node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "^4.1.0"
+  }
+}

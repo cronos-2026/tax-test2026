@@ -1,0 +1,55 @@
+name: Build and deploy GitHub Pages
+
+# Repo Settings -> Pages -> Build and deployment -> Source must be "GitHub Actions".
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "admin-login-log.json"   # GAS writes this on every admin login; do not redeploy for it
+      - "docs/**"
+      - "gas/**"
+      - "*.md"
+  workflow_run:                  # commits made with GITHUB_TOKEN do not trigger push events
+    workflows: ["Check annual tax parameters"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install build dependencies
+        run: |
+          if [ -f package-lock.json ]; then npm ci --no-audit --no-fund; else npm install --no-audit --no-fund; fi
+      - name: Build (obfuscate and verify)
+        run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

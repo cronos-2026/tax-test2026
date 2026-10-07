@@ -1,0 +1,380 @@
+{
+  "113": {
+    "schemaVersion": 1,
+    "savingsInvestmentDeduction": 270000,
+    "educationTuitionDeduction": 25000,
+    "preschoolFirstChildDeduction": 150000,
+    "preschoolAdditionalChildDeduction": 225000,
+    "houseRentDeduction": 180000,
+    "dividendCreditRate": 0.085,
+    "dividendCreditCap": 80000,
+    "dividendSeparateRate": 0.28,
+    "legalReserveRate": 0.1,
+    "businessTaxExemptThreshold": 120000,
+    "businessTaxTransitionThreshold": 200000,
+    "businessTaxTransitionRate": 0.5,
+    "businessTaxRate": 0.2,
+    "taxYear": 113,
+    "lastUpdated": "2024-11-28",
+    "sourceLabel": "財政部：公告113年度每人基本生活所需之費用金額",
+    "basicLivingExpense": 210000,
+    "exemption": 97000,
+    "seniorExemption": 145500,
+    "minorChildExemption": 0,
+    "standardDeductionSingle": 131000,
+    "standardDeductionMarried": 262000,
+    "salarySpecialDeduction": 218000,
+    "disabilitySpecialDeduction": 218000,
+    "longTermCareDeduction": 120000,
+    "brackets": [
+      {
+        "limit": 590000,
+        "rate": 0.05,
+        "diff": 0
+      },
+      {
+        "limit": 1330000,
+        "rate": 0.12,
+        "diff": 41300
+      },
+      {
+        "limit": 2660000,
+        "rate": 0.2,
+        "diff": 147700
+      },
+      {
+        "limit": 4980000,
+        "rate": 0.3,
+        "diff": 413700
+      },
+      {
+        "limit": null,
+        "rate": 0.4,
+        "diff": 911700
+      }
+    ],
+    "pageTitle": "創業組織稅負比較工具",
+    "pageSubtitle": "依營業所得、家庭所得與持有比例，比較商號與公司兩種課稅路徑。",
+    "sourceUrl": "https://www.mof.gov.tw/singlehtml/384fb3077bb349ea973e7fc6f13b6974?cntId=0bfb4c93c338453b8d00a415d61e2bf2",
+    "deductionSettings": {
+      "basicLivingExpense": {
+        "mode": "deduct",
+        "locked": true
+      },
+      "exemption": {
+        "mode": "core",
+        "locked": true
+      },
+      "standardDeductionSingle": {
+        "mode": "core",
+        "locked": true
+      },
+      "standardDeductionMarried": {
+        "mode": "core",
+        "locked": true
+      },
+      "seniorExemption": {
+        "enabled": false,
+        "visible": true
+      },
+      "salarySpecialDeduction": {
+        "enabled": false
+      },
+      "disabilitySpecialDeduction": {
+        "enabled": false
+      },
+      "savingsInvestmentDeduction": {
+        "enabled": false
+      },
+      "educationTuitionDeduction": {
+        "enabled": false
+      },
+      "preschoolFirstChildDeduction": {
+        "enabled": false
+      },
+      "preschoolAdditionalChildDeduction": {
+        "enabled": false
+      },
+      "longTermCareDeduction": {
+        "enabled": false
+      },
+      "houseRentDeduction": {
+        "enabled": false
+      },
+      "minorChildExemption": {
+        "enabled": true,
+        "visible": true
+      }
+    },
+    "customFields": [],
+    "customCalculationFields": [],
+    "dataQuality": {
+      "coreIncomeTax": {
+        "status": "official",
+        "taxYear": 113
+      },
+      "basicLivingExpense": {
+        "status": "official",
+        "taxYear": 113,
+        "value": 210000
+      }
+    }
+  },
+  "114": {
+    "schemaVersion": 1,
+    "savingsInvestmentDeduction": 270000,
+    "educationTuitionDeduction": 25000,
+    "preschoolFirstChildDeduction": 150000,
+    "preschoolAdditionalChildDeduction": 225000,
+    "houseRentDeduction": 180000,
+    "dividendCreditRate": 0.085,
+    "dividendCreditCap": 80000,
+    "dividendSeparateRate": 0.28,
+    "legalReserveRate": 0.1,
+    "businessTaxExemptThreshold": 120000,
+    "businessTaxTransitionThreshold": 200000,
+    "businessTaxTransitionRate": 0.5,
+    "businessTaxRate": 0.2,
+    "taxYear": 114,
+    "lastUpdated": "2025-11-27",
+    "sourceLabel": "財政部：114年度綜合所得稅報稅省荷包利民措施",
+    "basicLivingExpense": 213000,
+    "exemption": 97000,
+    "seniorExemption": 145500,
+    "minorChildExemption": 0,
+    "standardDeductionSingle": 131000,
+    "standardDeductionMarried": 262000,
+    "salarySpecialDeduction": 218000,
+    "disabilitySpecialDeduction": 218000,
+    "longTermCareDeduction": 180000,
+    "brackets": [
+      {
+        "limit": 590000,
+        "rate": 0.05,
+        "diff": 0
+      },
+      {
+        "limit": 1330000,
+        "rate": 0.12,
+        "diff": 41300
+      },
+      {
+        "limit": 2660000,
+        "rate": 0.2,
+        "diff": 147700
+      },
+      {
+        "limit": 4980000,
+        "rate": 0.3,
+        "diff": 413700
+      },
+      {
+        "limit": null,
+        "rate": 0.4,
+        "diff": 911700
+      }
+    ],
+    "pageTitle": "創業組織稅負比較工具",
+    "pageSubtitle": "依營業所得、家庭所得與持有比例，比較商號與公司兩種課稅路徑。",
+    "sourceUrl": "https://www.mof.gov.tw/singlehtml/384fb3077bb349ea973e7fc6f13b6974?cntId=550775ba71cf40de8ce75016aff40828",
+    "deductionSettings": {
+      "basicLivingExpense": {
+        "mode": "deduct",
+        "locked": true
+      },
+      "exemption": {
+        "mode": "core",
+        "locked": true
+      },
+      "standardDeductionSingle": {
+        "mode": "core",
+        "locked": true
+      },
+      "standardDeductionMarried": {
+        "mode": "core",
+        "locked": true
+      },
+      "seniorExemption": {
+        "enabled": false,
+        "visible": true
+      },
+      "salarySpecialDeduction": {
+        "enabled": false
+      },
+      "disabilitySpecialDeduction": {
+        "enabled": false
+      },
+      "savingsInvestmentDeduction": {
+        "enabled": false
+      },
+      "educationTuitionDeduction": {
+        "enabled": false
+      },
+      "preschoolFirstChildDeduction": {
+        "enabled": false
+      },
+      "preschoolAdditionalChildDeduction": {
+        "enabled": false
+      },
+      "longTermCareDeduction": {
+        "enabled": false
+      },
+      "houseRentDeduction": {
+        "enabled": false
+      },
+      "minorChildExemption": {
+        "enabled": true,
+        "visible": true
+      }
+    },
+    "customFields": [],
+    "customCalculationFields": [],
+    "dataQuality": {
+      "coreIncomeTax": {
+        "status": "official",
+        "taxYear": 114
+      },
+      "basicLivingExpense": {
+        "status": "official",
+        "taxYear": 114,
+        "value": 213000
+      }
+    }
+  },
+  "115": {
+    "schemaVersion": 1,
+    "savingsInvestmentDeduction": 270000,
+    "educationTuitionDeduction": 25000,
+    "preschoolFirstChildDeduction": 150000,
+    "preschoolAdditionalChildDeduction": 225000,
+    "houseRentDeduction": 180000,
+    "dividendCreditRate": 0.085,
+    "dividendCreditCap": 80000,
+    "dividendSeparateRate": 0.28,
+    "legalReserveRate": 0.1,
+    "businessTaxExemptThreshold": 120000,
+    "businessTaxTransitionThreshold": 200000,
+    "businessTaxTransitionRate": 0.5,
+    "businessTaxRate": 0.2,
+    "taxYear": 115,
+    "lastUpdated": "2026-09-05",
+    "sourceLabel": "財政部：公告115年度綜合所得稅及所得基本稅額相關免稅額、扣除額、課稅級距及計算退職所得定額免稅之金額",
+    "basicLivingExpense": 213000,
+    "exemption": 101000,
+    "seniorExemption": 151500,
+    "minorChildExemption": 151500,
+    "standardDeductionSingle": 136000,
+    "standardDeductionMarried": 272000,
+    "salarySpecialDeduction": 227000,
+    "disabilitySpecialDeduction": 227000,
+    "longTermCareDeduction": 180000,
+    "brackets": [
+      {
+        "limit": 610000,
+        "rate": 0.05,
+        "diff": 0
+      },
+      {
+        "limit": 1380000,
+        "rate": 0.12,
+        "diff": 42700
+      },
+      {
+        "limit": 2770000,
+        "rate": 0.2,
+        "diff": 153100
+      },
+      {
+        "limit": 5190000,
+        "rate": 0.3,
+        "diff": 430100
+      },
+      {
+        "limit": null,
+        "rate": 0.4,
+        "diff": 949100
+      }
+    ],
+    "pageTitle": "創業組織稅負比較工具",
+    "pageSubtitle": "依營業所得、家庭所得與持有比例，比較商號與公司兩種課稅路徑。",
+    "sourceUrl": "https://www.mof.gov.tw/singlehtml/384fb3077bb349ea973e7fc6f13b6974?cntId=34b463dc8f1b49f29d440d92a6fd5139",
+    "deductionSettings": {
+      "basicLivingExpense": {
+        "mode": "deduct",
+        "locked": true
+      },
+      "exemption": {
+        "mode": "core",
+        "locked": true
+      },
+      "standardDeductionSingle": {
+        "mode": "core",
+        "locked": true
+      },
+      "standardDeductionMarried": {
+        "mode": "core",
+        "locked": true
+      },
+      "seniorExemption": {
+        "enabled": false,
+        "visible": true
+      },
+      "salarySpecialDeduction": {
+        "enabled": false
+      },
+      "disabilitySpecialDeduction": {
+        "enabled": false
+      },
+      "savingsInvestmentDeduction": {
+        "enabled": false
+      },
+      "educationTuitionDeduction": {
+        "enabled": false
+      },
+      "preschoolFirstChildDeduction": {
+        "enabled": false
+      },
+      "preschoolAdditionalChildDeduction": {
+        "enabled": false
+      },
+      "longTermCareDeduction": {
+        "enabled": false
+      },
+      "houseRentDeduction": {
+        "enabled": false
+      },
+      "minorChildExemption": {
+        "enabled": true,
+        "visible": true
+      }
+    },
+    "customFields": [],
+    "customCalculationFields": [],
+    "sourcePublishDate": "2025-11-27",
+    "dataQuality": {
+      "coreIncomeTax": {
+        "status": "official",
+        "taxYear": 115,
+        "sourceLabel": "財政部：公告115年度綜合所得稅及所得基本稅額相關免稅額、扣除額、課稅級距及計算退職所得定額免稅之金額",
+        "sourceUrl": "https://www.mof.gov.tw/singlehtml/384fb3077bb349ea973e7fc6f13b6974?cntId=34b463dc8f1b49f29d440d92a6fd5139",
+        "sourcePublishDate": "2025-11-27"
+      },
+      "basicLivingExpense": {
+        "status": "provisional",
+        "taxYear": 115,
+        "valueSourceYear": 114,
+        "value": 213000,
+        "sourceLabel": "財政部：公告114年度每人基本生活所需之費用金額",
+        "sourceUrl": "https://www.mof.gov.tw/singlehtml/384fb3077bb349ea973e7fc6f13b6974?cntId=e14d053486394dc6b28c88aba2912f83",
+        "sourcePublishDate": "2025-11-27",
+        "note": "115年度每人基本生活所需費用尚待財政部公告；目前暫以114年度213,000元作比較顯示。此項在本工具目前僅作比較，不納入應納綜合所得稅計算。"
+      },
+      "autoMonitor": {
+        "enabled": true,
+        "candidatePath": "data/annual-candidate.json",
+        "workflow": "check-tax-annual.yml",
+        "policy": "detect-compare-confirm"
+      }
+    }
+  }
+}

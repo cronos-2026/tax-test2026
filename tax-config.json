@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "taxYear": 115,
+  "lastUpdated": "2026-10-06",
+  "sourceLabel": "財政部：公告115年度綜合所得稅及所得基本稅額相關免稅額、扣除額、課稅級距及計算退職所得定額免稅之金額",
+  "basicLivingExpense": 213000,
+  "exemption": 101000,
+  "seniorExemption": 151500,
+  "minorChildExemption": 151500,
+  "standardDeductionSingle": 136000,
+  "standardDeductionMarried": 272000,
+  "salarySpecialDeduction": 227000,
+  "disabilitySpecialDeduction": 227000,
+  "savingsInvestmentDeduction": 270000,
+  "educationTuitionDeduction": 25000,
+  "preschoolFirstChildDeduction": 150000,
+  "preschoolAdditionalChildDeduction": 225000,
+  "longTermCareDeduction": 180000,
+  "houseRentDeduction": 180000,
+  "dividendCreditRate": 0.085,
+  "dividendCreditCap": 80000,
+  "dividendSeparateRate": 0.28,
+  "legalReserveRate": 0.1,
+  "businessTaxExemptThreshold": 120000,
+  "businessTaxTransitionThreshold": 200000,
+  "businessTaxTransitionRate": 0.5,
+  "businessTaxRate": 0.2,
+  "brackets": [
+    {
+      "limit": 610000,
+      "rate": 0.05,
+      "diff": 0
+    },
+    {
+      "limit": 1380000,
+      "rate": 0.12,
+      "diff": 42700
+    },
+    {
+      "limit": 2770000,
+      "rate": 0.2,
+      "diff": 153100
+    },
+    {
+      "limit": 5190000,
+      "rate": 0.3,
+      "diff": 430100
+    },
+    {
+      "limit": null,
+      "rate": 0.4,
+      "diff": 949100
+    }
+  ],
+  "pageTitle": "115年度創業組織稅負比較工具",
+  "pageSubtitle": "依營業所得、家庭所得與持有比例，試算商號與公司在不同課稅路徑下的稅負差異。",
+  "sourceUrl": "https://www.mof.gov.tw/singlehtml/384fb3077bb349ea973e7fc6f13b6974?cntId=34b463dc8f1b49f29d440d92a6fd5139",
+  "deductionSettings": {
+    "basicLivingExpense": {
+      "mode": "deduct",
+      "locked": true
+    },
+    "exemption": {
+      "mode": "core",
+      "locked": true
+    },
+    "standardDeductionSingle": {
+      "mode": "core",
+      "locked": true
+    },
+    "standardDeductionMarried": {
+      "mode": "core",
+      "locked": true
+    },
+    "seniorExemption": {
+      "enabled": false,
+      "visible": true
+    },
+    "salarySpecialDeduction": {
+      "enabled": false
+    },
+    "disabilitySpecialDeduction": {
+      "enabled": false
+    },
+    "savingsInvestmentDeduction": {
+      "enabled": false
+    },
+    "educationTuitionDeduction": {
+      "enabled": false
+    },
+    "preschoolFirstChildDeduction": {
+      "enabled": false
+    },
+    "preschoolAdditionalChildDeduction": {
+      "enabled": false
+    },
+    "longTermCareDeduction": {
+      "enabled": false
+    },
+    "houseRentDeduction": {
+      "enabled": false
+    },
+    "minorChildExemption": {
+      "enabled": true,
+      "visible": true
+    }
+  },
+  "pageNotice": "本工具供稅負情境試算使用；實際申報仍應依當年度法規、申報身分、所得性質及可適用扣除額確認。",
+  "showHeaderSection": true,
+  "siteVersion": "2026.10.07_v21",
+  "customFields": [],
+  "customCalculationFields": [],
+  "sourcePublishDate": "2025-11-27",
+  "dataQuality": {
+    "coreIncomeTax": {
+      "status": "official",
+      "taxYear": 115,
+      "sourceLabel": "財政部：公告115年度綜合所得稅及所得基本稅額相關免稅額、扣除額、課稅級距及計算退職所得定額免稅之金額",
+      "sourceUrl": "https://www.mof.gov.tw/singlehtml/384fb3077bb349ea973e7fc6f13b6974?cntId=34b463dc8f1b49f29d440d92a6fd5139",
+      "sourcePublishDate": "2025-11-27"
+    },
+    "basicLivingExpense": {
+      "status": "provisional",
+      "taxYear": 115,
+      "valueSourceYear": 114,
+      "value": 213000,
+      "sourceLabel": "財政部：公告114年度每人基本生活所需之費用金額",
+      "sourceUrl": "https://www.mof.gov.tw/singlehtml/384fb3077bb349ea973e7fc6f13b6974?cntId=e14d053486394dc6b28c88aba2912f83",
+      "sourcePublishDate": "2025-11-27",
+      "note": "115年度每人基本生活所需費用尚待財政部公告；目前暫以114年度213,000元作比較顯示。此項在本工具目前僅作比較，不納入應納綜合所得稅計算。"
+    },
+    "autoMonitor": {
+      "enabled": true,
+      "candidatePath": "data/annual-candidate.json",
+      "workflow": "check-tax-annual.yml",
+      "policy": "detect-compare-confirm"
+    }
+  },
+  "layoutSettings": {
+    "leftColumnPercent": 37,
+    "basicTitle": "一、輸入試算條件",
+    "resultTitle": "二、比較試算結果",
+    "versionNoteText": "2026.10.07_v21：後端登入防暴力破解（失敗鎖定、密碼雜湊）、登入紀錄改由後端寫入、發布前設定驗證與版次衝突檢查、前端發布版混淆。 v20：新增未成年子女免稅額加計 50%、納入基本生活費差額、股利抵減退稅處理；列印／PDF 改依內容量自動放大並維持單頁；退稅以「可退稅 ○○ 元」顯示；移除前台頂部功能標籤；列印／PDF 改為實際量測內容高度，自動放大到填滿一頁；「70歲以上」與「未成年子女」可在後台分別設定是否納入計算、是否於前台顯示；「未成年子女人數」欄位移入「已啟用免稅額／特別扣除額」區塊並刪除「其中：」字樣；列印／PDF 時隱藏「立即計算比較」按鈕；後台新增「未成年子女免稅額（含加計）」金額欄位。 v20：管理後台連接 Apps Script Web App，GitHub Token 保存在伺服器端 Script Properties，保留既有前台與 /admin 網址。",
+    "sections": {
+      "inputCard": {
+        "webVisible": true,
+        "printVisible": true
+      },
+      "resultCard": {
+        "webVisible": true,
+        "printVisible": true
+      },
+      "summary": {
+        "webVisible": true,
+        "printVisible": true,
+        "order": 1
+      },
+      "details": {
+        "webVisible": true,
+        "printVisible": true,
+        "order": 2
+      },
+      "basicLiving": {
+        "webVisible": true,
+        "printVisible": true,
+        "order": 3
+      },
+      "taxNotes": {
+        "webVisible": true,
+        "printVisible": true
+      },
+      "versionNotes": {
+        "webVisible": true,
+        "printVisible": false
+      }
+    }
+  }
+}
