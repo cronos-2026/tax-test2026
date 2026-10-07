@@ -6,7 +6,7 @@
 
 | 名稱 | 說明 |
 | --- | --- |
-| `GITHUB_TOKEN` | Fine-grained PAT，僅授權本儲存庫 `Contents: Read and write`（`Metadata: Read-only` 保持預設）。 |
+| `GITHUB_TOKEN` | Fine-grained PAT，僅授權本儲存庫 `cronos-2026/tax-test2026`，權限 `Contents: Read and write`（`Metadata: Read-only` 保持預設）。若沿用舊儲存庫的 Token，必須在 GitHub 重新設定其可存取的儲存庫。 |
 | `ADMIN_USERNAME`、`ADMIN_PASSWORD_HASH` | 主要管理員。雜湊值由 `migratePasswordsToHash` 產生，不要手寫。 |
 | `SECONDARY_ADMIN_USERNAME`、`SECONDARY_ADMIN_PASSWORD_HASH` | 次要管理員：可發布參數、查看登入紀錄；不能刪除登入紀錄、不能新增管理員。 |
 | `ADMIN_PASSWORD`、`SECONDARY_ADMIN_PASSWORD` | **僅用於設定或更換密碼的暫存屬性**，執行遷移後會被自動刪除。 |
