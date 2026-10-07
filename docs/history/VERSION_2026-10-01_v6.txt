@@ -1,0 +1,8 @@
+2026.10.01_v6
+
+GitHub Actions 相容性更新版
+- checkout v7
+- setup-python v7
+- runner 固定 ubuntu-24.04
+- 保留年度候選資料自動檢查與人工確認流程
+- 保留左資訊／右計算與 A4/PDF 一頁優先版面

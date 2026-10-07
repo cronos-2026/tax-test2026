@@ -1,0 +1,14 @@
+# secrets / local credentials: never commit
+.clasprc.json
+.env
+.env.*
+*.pem
+*.key
+# build output and dependencies
+node_modules/
+_site/
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
