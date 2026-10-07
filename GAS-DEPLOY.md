@@ -1,12 +1,6 @@
-# Google Apps Script 後端部署（v22）
+# Google Apps Script 後端部署（v21）
 
 前端部署在 GitHub Pages。Apps Script Web App 負責管理員登入驗證、參數發布與登入紀錄寫入；GitHub Token 與管理員密碼只放在 Script Properties，不放入前端或版本控制。後端原始碼為 `gas/Code.gs`，部署設定為 `gas/appsscript.json`。
-
-## GitHub Pages 儲存庫（v22）
-- 前台：https://cronos-2026.github.io/tax-test2026/
-- 後台：https://cronos-2026.github.io/tax-test2026/admin
-- `gas/Code.gs` 的 `CONFIG.REPO` 已設定為 `tax-test2026`。
-- `GITHUB_TOKEN` 必須授權 `cronos-2026/tax-test2026` 的 `Contents: Read and write`；只授權舊 `tax-planning` 儲存庫的 Token 不會自動涵蓋新儲存庫。請先在 GitHub 更新 Token 權限，再由專案擁有者更新 Script Properties。
 
 ## Script Properties
 
@@ -47,7 +41,16 @@
 4. 僅專案擁有者應有 GAS 專案編輯權限，因編輯者可修改後端並讀取 Script Properties。
 
 ## API 與工作階段
-前端以表單編碼 POST 傳送請求，再以 JSONP 輪詢短期結果（符合 Apps Script 跨網域限制）。請求識別碼由瀏覽器以 `crypto.getRandomValues` 產生（32 位以上），結果讀取一次即作廢。支援的操作：`login`、`logout`、`check`、`saveConfig`、`getAudit`、`deleteAudit`；除 `login` 外都須 session。v21 已移除未驗證的 `publicConfig` 與前端寫入的 `syncAudit`。錯誤回應只含預先定義的訊息，不含例外堆疊或 GitHub 回傳內容。
+前端以不帶 cookie 的 `fetch` 傳送請求（POST，`no-cors`），再以 `fetch(...?format=json&requestId=…, {credentials:'omit'})` 輪詢短期結果；若瀏覽器擋下這種讀取，才退回 JSONP（`<script>` 標籤）備援。
+**不要只依賴 JSONP**：`<script>` 一定會帶 Google cookie，使用者登入多個 Google 帳號時，Google 會把請求導向 `/macros/u/1/...` 並回傳「無法開啟檔案」的 Drive 頁面，後端的 `doGet` 不會被執行。
+請求識別碼由瀏覽器以 `crypto.getRandomValues` 產生（32 位以上，不可猜測），結果在讀取後最多再保留 20 秒即失效。支援的操作：`login`、`logout`、`check`、`saveConfig`、`getAudit`、`deleteAudit`；除 `login` 外都須 session。v21 已移除未驗證的 `publicConfig` 與前端寫入的 `syncAudit`。錯誤回應只含預先定義的訊息，不含例外堆疊或 GitHub 回傳內容。
+
+### 連線排查
+在已部署後台頁面（網域 github.io）的開發者工具 Console 執行，確認不帶 cookie 的跨網域讀取可用：
+```
+fetch('<你的 /exec 網址>?format=json&requestId=' + 'a'.repeat(32), {credentials: 'omit'}).then(r => r.text()).then(console.log)
+```
+預期輸出 `{"ok":false,"pending":true}`。若報 CORS 錯誤，後台會自動改用 JSONP，但多帳號登入的瀏覽器可能失敗；登入錯誤訊息會列出 fetch 與 jsonp 各自的失敗原因。
 
 ## 版本控制
 - 後端：`gas/Code.gs`、`gas/appsscript.json` 入庫。可用 clasp 同步（在 `gas/` 目錄執行 `clasp push`）；`.clasprc.json`、Script Properties、密碼與 Token 絕不可提交（已列入 `.gitignore`）。

@@ -1,4 +1,4 @@
-# 創業組織稅負比較工具（2026.10.07_v22）
+# 創業組織稅負比較工具（2026.10.07_v21）
 
 比較「獨資／合夥商號」與「公司」兩種組織型態的全年稅負（綜所稅、營所稅、股利課稅）。
 
@@ -13,8 +13,8 @@
 - `docs/history/`：歷次更新說明。
 
 ## 網址
-- 前台：https://cronos-2026.github.io/tax-test2026/
-- 後台：https://cronos-2026.github.io/tax-test2026/admin
+- 前台：https://cronos-2026.github.io/tax-planning/
+- 後台：https://cronos-2026.github.io/tax-planning/admin
 
 ## 計算規則摘要
 - 綜所稅：薪資＋營利所得（＋股利）－免稅額－標準扣除額－已啟用特別扣除額－基本生活費差額；未成年子女免稅額加計 50%。

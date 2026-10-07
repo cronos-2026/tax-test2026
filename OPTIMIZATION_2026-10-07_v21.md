@@ -7,4 +7,5 @@
 - Removed the unauthenticated `publicConfig` action. Backend errors no longer expose GitHub messages or stack text. Request IDs are 32+ chars from `crypto.getRandomValues`; logout invalidates the session.
 - `admin.html`: removed stale GitHub Token wording and hard-coded account names; IP lookup has a timeout.
 - Added publish-time build (`scripts/build.mjs`, `deploy-pages.yml`): allow-listed files only, JS obfuscation, parse verification. Added `.gitignore`, `gas/appsscript.json`, `package.json`.
+- Transport fix: result polling now uses `fetch` with `credentials:'omit'` (`doGet?format=json`) and falls back to JSONP. JSONP `<script>` requests carry Google cookies and are redirected to `/macros/u/1/` when several Google accounts are signed in, which returned the Drive "cannot open file" page and never reached `doGet`. Redeploy the GAS web app (new version) together with the front end.
 - Not browser-tested: the backend logic was exercised against a mocked Apps Script runtime, and the build pipeline against a stub obfuscator. Verify login, publish and the Actions deploy once after rollout.

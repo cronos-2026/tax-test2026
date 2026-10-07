@@ -1,5 +1,5 @@
 {
-  "name": "tax-test2026",
+  "name": "tax-planning",
   "private": true,
   "type": "module",
   "description": "Build pipeline for the GitHub Pages front end (publish-time JS obfuscation).",

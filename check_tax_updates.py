@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "tax-config.json"
 OUT_PATH = ROOT / "data" / "annual-candidate.json"
 RSS_URL = "https://www.mof.gov.tw/Rss/384fb3077bb349ea973e7fc6f13b6974"
-UA = "Mozilla/5.0 (compatible; TaxAnnualMonitor/1.0; +https://github.com/cronos-2026/tax-test2026)"
+UA = "Mozilla/5.0 (compatible; TaxAnnualMonitor/1.0; +https://github.com/cronos-2026/tax-planning)"
 TIMEOUT = 30
 CORE_FIELDS = [
     "exemption", "seniorExemption", "standardDeductionSingle",

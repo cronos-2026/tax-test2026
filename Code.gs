@@ -1,5 +1,5 @@
 /**
- * GAS web app backend for the tax-test2026 GitHub Pages site (v22).
+ * GAS web app backend for the tax-planning GitHub Pages site (v21).
  * Configure Script Properties before deployment. See ../GAS-DEPLOY.md.
  *
  * Script Properties (never commit values):
@@ -10,7 +10,7 @@
  */
 const CONFIG = Object.freeze({
   OWNER: 'cronos-2026',
-  REPO: 'tax-test2026',
+  REPO: 'tax-planning',
   BRANCH: 'main',
   CONFIG_PATH: 'tax-config.json',
   AUDIT_PATH: 'admin-login-log.json',
@@ -32,9 +32,12 @@ function fail_(msg) { throw new UserError(msg); }
 
 function doGet(e) {
   const p = (e && e.parameter) || {};
-  const callback = String(p.callback || '');
-  if (!/^cb_[a-zA-Z0-9_]{1,60}$/.test(callback)) return ContentService.createTextOutput('/* invalid callback */');
   const result = takeResult_(String(p.requestId || ''));
+  if (String(p.format || '') === 'json') {   // preferred: fetch without cookies
+    return ContentService.createTextOutput(JSON.stringify(result)).setMimeType(ContentService.MimeType.JSON);
+  }
+  const callback = String(p.callback || '');   // fallback: JSONP
+  if (!/^cb_[a-zA-Z0-9_]{1,60}$/.test(callback)) return ContentService.createTextOutput('/* invalid callback */');
   return ContentService.createTextOutput(callback + '(' + JSON.stringify(result) + ');')
     .setMimeType(ContentService.MimeType.JAVASCRIPT);
 }
@@ -392,7 +395,7 @@ function takeResult_(id) {
   const key = 'result:' + id;
   const raw = cache.get(key);
   if (!raw) return { ok: false, pending: true };
-  cache.remove(key);
+  cache.put(key, raw, 20);   // short grace so a retry after a dropped response still works, then it expires
   return JSON.parse(raw);
 }
 function isRequestId_(id) { return /^[a-zA-Z0-9_-]{32,80}$/.test(id); }
