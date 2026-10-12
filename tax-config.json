@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "taxYear": 115,
-  "lastUpdated": "2026-10-06",
+  "lastUpdated": "2026-10-12",
   "sourceLabel": "財政部：公告115年度綜合所得稅及所得基本稅額相關免稅額、扣除額、課稅級距及計算退職所得定額免稅之金額",
   "basicLivingExpense": 213000,
   "exemption": 101000,
@@ -73,7 +73,7 @@
       "locked": true
     },
     "seniorExemption": {
-      "enabled": false,
+      "enabled": true,
       "visible": true
     },
     "salarySpecialDeduction": {
@@ -174,5 +174,6 @@
         "printVisible": false
       }
     }
-  }
+  },
+  "configRevision": 1
 }
