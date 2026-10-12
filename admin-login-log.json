@@ -1,5 +1,21 @@
 {
   "schemaVersion": 1,
-  "updatedAt": null,
-  "logs": []
+  "updatedAt": "2026-10-12T03:09:41.489Z",
+  "logs": [
+    {
+      "id": "ad98b68c-eeb5-4e2b-abbd-b1d78a627aad",
+      "loginAt": "2026-10-12T03:09:41.030Z",
+      "loginAtLocal": "2026/10/12 11:09:41",
+      "result": "success",
+      "account": "admins",
+      "role": "primary",
+      "deviceName": "Windows-Edge-DEV-B4BE727CC049",
+      "deviceId": "DEV-B4BE727CC049",
+      "browserPlatform": "Edge / Windows",
+      "language": "zh-TW",
+      "clientIp": "114.24.110.237",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "detail": ""
+    }
+  ]
 }
